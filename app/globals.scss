@@ -6,17 +6,58 @@
 }
 
 body {
-  background-color: bisque;
+  background-color: #deedf2;
   margin: 0;
   padding: 0;
 
   nav {
     width: auto;
     height: auto;
-    background: #ede9db;
+    background: #deedf2;
     display: flex;
     justify-content: baseline;
     align-items: justify;
     padding: 10px 0;
   }
+}
+
+h1 {
+  width: 500px;
+  margin: 20px;
+}
+ul {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+  align-items: center;
+  list-style-type: none;
+}
+> div a {
+  margin: 30px;
+  align-items: center;
+  text-decoration: none;
+}
+
+> main image {
+  box-sizing: content-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+.container {
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.map {
+  display: flex;
+  margin: 20px;
+  border: solid red;
+}
+
+.name {
+  text-decoration: none;
 }
