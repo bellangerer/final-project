@@ -6,24 +6,36 @@
 }
 
 body {
+  border-style: solid;
+  border-color: orange;
   background-color: #deedf2;
   margin: 0;
   padding: 0;
+}
 
-  nav {
-    width: auto;
-    height: auto;
-    background: #deedf2;
-    display: flex;
-    justify-content: baseline;
-    align-items: justify;
-    padding: 10px 0;
-  }
+nav {
+  border-style: solid;
+  border-color: green;
+  width: auto;
+  height: auto;
+  background: #deedf2;
+  display: flex;
+  justify-content: baseline;
+  align-items: justify;
+  padding: 10px 0;
 }
 
 h1 {
+  border-style: solid;
+  border-color: red;
+  width: 300px;
+  margin: auto;
+}
+h2 {
+  border-style: solid;
+  border-color: blue;
   width: 500px;
-  margin: 20px;
+  margin: auto;
 }
 ul {
   display: flex;
@@ -32,32 +44,10 @@ ul {
   align-items: center;
   list-style-type: none;
 }
-> div a {
+
+p {
   margin: 30px;
-  align-items: center;
-  text-decoration: none;
-}
-
-> main image {
-  box-sizing: content-box;
-}
-
-html {
+  border-style: solid;
+  border-color: black;
   font-size: 16px;
-}
-
-.container {
-  max-width: 1700px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.map {
-  display: flex;
-  margin: 20px;
-  border: solid red;
-}
-
-.name {
-  text-decoration: none;
 }

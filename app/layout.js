@@ -1,5 +1,4 @@
 import { Inter } from 'next/font/google';
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from './globals.scss';
 
@@ -19,18 +18,17 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <div className={styles.wrapper}>
           <nav className={styles.navbar}>
-            <Image
-              src={'/public/Thynk Travel.jpg'}
-              alt="world"
-              height={200}
-              width={600}
-            />
+            <h1>World travelers</h1>
             <ul className={styles.links}>
-              <li className={styles.nailing}>
-                <Link href="/">Login</Link>
+              <li className={styles.hero}>
+                <div>
+                  <Link href="/register">Register</Link>
+                </div>
               </li>
               <li className={styles.nailing}>
-                <Link href="/travel-bundle">Sign up</Link>
+                <div>
+                  <Link href="/login">Login</Link>
+                </div>
               </li>
             </ul>
           </nav>
