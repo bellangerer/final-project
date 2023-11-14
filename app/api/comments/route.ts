@@ -1,9 +1,9 @@
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { createComment } from '../../../database/comment';
+import { createComment } from '../../../database/comments';
 import { getValidSessionByToken } from '../../../database/sessions';
-import { Comment } from '../../../migrations/00003-createTableComments';
+import { Comment } from '../../../migrations/00002-createTableComments';
 
 const commentSchema = z.object({
   userId: z.number(),

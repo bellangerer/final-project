@@ -7,6 +7,14 @@ export default function Home() {
       <div>
         <h2>Your next journey is just one click away.</h2>
         <div>
+          <div className={styles.map}>
+            <Image
+              src={'/images/world.jpg'}
+              alt="world"
+              height={500}
+              width={800}
+            />
+          </div>
           <p>
             Welcome to our travel community! We are a passionate group of
             adventurers who share a deep love for exploring the world. Our

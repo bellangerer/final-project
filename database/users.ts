@@ -90,3 +90,24 @@ export const getUserNoteBySessionToken = cache(async (token: string) => {
   `;
   return notes;
 });
+
+export const getUserBlogPostBySessionToken = cache(async (token: string) => {
+  const notes = await sql<UserBlogPostWithoutUserId[]>`
+   SELECT
+      posts.id AS post_id,
+      posts.title AS title,
+      posts.content AS post,
+      users.username AS username
+    FROM
+      posts
+    INNER JOIN
+      users ON posts.user_id = users.id
+    INNER JOIN
+      sessions ON (
+        sessions.token = ${token} AND
+        sessions.user_id = users.id AND
+        sessions.expiry_timestamp > now()
+      )
+  `;
+  return notes;
+});

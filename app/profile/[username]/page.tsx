@@ -5,7 +5,7 @@ type Props = {
 export default function UserProfilePage({ params }: Props) {
   return (
     <div>
-      <h2>{params.username} Profile</h2>
+      <h2>Welcome back {params.username} </h2>
     </div>
   );
 }

@@ -7,7 +7,7 @@ export const createComment = cache(
   async (userId: number, postId: number, comment: string) => {
     const [comments] = await sql<Comment[]>`
       INSERT INTO comments
-      (user_id, post_id, comment)
+      (user_id, post_id, comment_content)
       VALUES
         (${userId}, ${postId},${comment})
       RETURNING *
@@ -27,7 +27,7 @@ export const getUserComments = cache(async () => {
   const comments = await sql<CommentWithUsername[]>`
     SELECT
       comments.id AS comment_id,
-      comments.comment AS comment,
+      comments.comment_content AS comment,
       comments.post_id AS post_id,
       users.username AS username
     FROM

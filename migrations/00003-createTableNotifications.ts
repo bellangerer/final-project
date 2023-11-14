@@ -1,6 +1,6 @@
 import { Sql } from 'postgres';
 
-export type User = {
+export type Notification = {
   id: number;
   usersId: string;
 };
@@ -10,7 +10,7 @@ export async function up(sql: Sql) {
     CREATE TABLE
       notifications (
         id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-        expiry_timestamp TIMESTAMP NOT NULL DEFAULT NOW () + INTERVAL '24 hours',
+        expiry_timestamp TIMESTAMP NOT NULL DEFAULT NOW (),
         user_id INTEGER NOT NULL REFERENCES users (id) ON DELETE CASCADE
       );
   `;

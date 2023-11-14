@@ -5,6 +5,7 @@ export type Post = {
   userId: number;
   title: string;
   content: string;
+  imageUrl: string;
 };
 
 export async function up(sql: Sql) {
@@ -12,8 +13,9 @@ export async function up(sql: Sql) {
     CREATE TABLE posts (
       id serial PRIMARY KEY,
       user_id integer NOT NULL REFERENCES users (id) ON DELETE CASCADE,
-      title varchar(80) NOT NULL UNIQUE,
-      content text NOT NULL
+      title varchar(80) NOT NULL,
+      content text NOT NULL,
+      image_url varchar(100) NOT NULL
     );
   `;
 }
