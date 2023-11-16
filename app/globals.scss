@@ -8,52 +8,71 @@
 body {
   border-style: solid;
   border-color: orange;
-  background-color: #deedf2;
+  background-color: #def0f9;
   margin: 0;
   padding: 0;
-}
 
-nav {
+  nav {
+    border-style: solid;
+    border-color: red;
+    height: 10.6rem;
+    background: #def0f9;
+    display: flex;
+    align-content: flex-end;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+  h1 {
+    border-style: solid;
+    border-color: black;
+    width: 500px;
+    margin: 20px;
+  }
+  ul {
+    border-style: solid;
+    border-color: green;
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    align-items: center;
+    list-style-type: none;
+  }
+  > div a {
+    border-style: solid;
+    border-color: darkblue;
+    margin: 30px;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  > main image {
+    border-style: solid;
+    border-color: darkmagenta;
+    box-sizing: content-box;
+  }
   border-style: solid;
-  border-color: green;
+  border-color: orange;
+  box-sizing: border-box;
   width: auto;
-  height: auto;
-  background: #deedf2;
-  display: flex;
-  justify-content: baseline;
-  align-items: justify;
-  padding: 10px 0;
 }
 
-h1 {
+html {
   border-style: solid;
-  border-color: red;
-  width: 300px;
-  margin: auto;
-}
-h2 {
-  border-style: solid;
-  border-color: blue;
-  width: 500px;
-  margin: auto;
-}
-ul {
-  display: flex;
-  justify-content: right;
-  width: 100%;
-  align-items: center;
-  list-style-type: none;
-}
-
-p {
-  margin: 30px;
-  border-style: solid;
-  border-color: black;
+  border-color: yellowgreen;
   font-size: 16px;
 }
+
+.container {
+  border-style: solid;
+  border-color: maroon;
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 .map {
+  border-style: solid;
+  border-color: brown;
   display: flex;
   margin: 20px;
-  border-style: solid;
-  border-color: pink;
 }

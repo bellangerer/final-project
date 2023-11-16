@@ -15,7 +15,7 @@ export default function PostsForm() {
   async function handleRegister(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const response = await fetch('/api/register', {
+    const response = await fetch('/api/createPosts', {
       method: 'POST',
       body: JSON.stringify({
         title: title,
@@ -55,7 +55,7 @@ export default function PostsForm() {
       <CldImage
         width="960"
         height="600"
-        src="sample"
+        src="<Public ID>"
         sizes="100vw"
         alt="Description of my image"
       />

@@ -24,12 +24,12 @@ export const deletePostByUserId = cache(async (userId: number) => {
 });
 
 export const createBlogPost = cache(
-  async (userId: number, title: string, content: string) => {
+  async (userId: number, title: string, content: string, imageUrl: string) => {
     const [posts] = await sql<Post[]>`
       INSERT INTO posts
-      (user_id, title, content)
+      (user_id, title, content, image_url)
       VALUES
-        (${userId},${title}, ${content})
+        (${userId},${title}, ${content}, ${imageUrl})
       RETURNING *
     `;
 
@@ -43,7 +43,9 @@ export const getAllBlogPosts = cache(async () => {
       posts.id AS post_id,
       posts.title AS title,
       posts.content AS content,
+      posts.image_url AS image_url,
       users.username AS username
+
     FROM
       posts
     INNER JOIN

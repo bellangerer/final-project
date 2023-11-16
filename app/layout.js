@@ -35,6 +35,9 @@ export default async function RootLayout({ children }) {
               <li>
                 <Link href="/posts">Community</Link>
               </li>
+              <li>
+                <Link href="/createPost">Create Post</Link>
+              </li>
 
               <li>
                 {user ? (
@@ -52,7 +55,6 @@ export default async function RootLayout({ children }) {
             </ul>
           </nav>
         </div>
-
         {children}
       </body>
     </html>

@@ -1,14 +1,15 @@
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
-import { z } from 'zod';
+import { Schema, z } from 'zod';
 import { createBlogPost } from '../../../database/posts';
 import { getValidSessionByToken } from '../../../database/sessions';
+import { getUserBySessionToken } from '../../../database/users';
 import { Post } from '../../../migrations/00004-createTablePosts';
 
 const blogPostSchema = z.object({
-  userId: z.number(),
   title: z.string().min(3),
-  post: z.string().min(5),
+  content: z.string(),
+  imageUrl: z.string(),
 });
 
 export type BlogPostResponseBodyPost =
@@ -27,6 +28,7 @@ export async function POST(
   if (!result.success) {
     return NextResponse.json(
       { errors: result.error.issues },
+
       {
         status: 400,
       },
@@ -48,11 +50,20 @@ export async function POST(
       { status: 401 },
     );
   }
-
+  const user = await getUserBySessionToken(session.token);
+  if (!user) {
+    return NextResponse.json(
+      {
+        errors: [{ message: 'User is invalid' }],
+      },
+      { status: 401 },
+    );
+  }
   const newBlogPost = await createBlogPost(
-    result.data.userId,
+    user.id,
     result.data.title,
-    result.data.post,
+    result.data.content,
+    result.data.imageUrl,
   );
 
   if (!newBlogPost) {
