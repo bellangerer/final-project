@@ -1,8 +1,8 @@
 import { CldImage } from 'next-cloudinary';
 import Image from 'next/image';
 import Link from 'next/link';
+import styles from '../../app/posts/post.page.module.scss';
 import { getAllBlogPosts } from '../../database/posts';
-import styles from '../posts/page.module.scss';
 
 export const metadata = {
   title: 'Community',
@@ -16,15 +16,28 @@ export default async function PostsPage() {
   return (
     <div className={styles.info}>
       <div className={styles.titleWrapper}>
-        <h2>Community</h2>
+        <h2>Travel blog</h2>
       </div>
       <div className={styles.imageWrapper}>
         {posts && posts.length > 0 ? (
           posts.map((post) => (
-            <div className={styles.card} key={`post-div-${post.id}`}>
-              <Link href={`/posts/${post.id}`}>{post.title}</Link>
-              <Image src={post.imageUrl} alt="image" width={300} height={300} />
-            </div>
+            <Link
+              href={`/posts/${post.postId}`}
+              className={styles.card}
+              key={`post-div-${post.id}`}
+            >
+              <div className={styles.imageContainer}>
+                <Image
+                  src={post.imageUrl}
+                  alt="image"
+                  width={400}
+                  height={300}
+                  className={styles.image}
+                />
+              </div>
+              <div className={styles.titleLink}>{post.title}</div>
+              <p>Posted by: {post.username}</p>
+            </Link>
           ))
         ) : (
           <p>No posts available.</p>

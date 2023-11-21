@@ -1,6 +1,7 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { getValidSessionByToken } from '../../../database/sessions';
+import styles from '../login/login.module.scss';
 import LoginForm from './LoginForm';
 
 type Props = { searchParams: { returnTo?: string | string[] } };

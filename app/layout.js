@@ -1,9 +1,11 @@
 import { Inter } from 'next/font/google';
 import { cookies } from 'next/headers';
+import Image from 'next/image';
 import Link from 'next/link';
 import { getUserBySessionToken } from '../database/users';
 import LogoutButton from './(auth)/logout/LogoutButton';
 import styles from './globals.scss';
+import { ProfileButton } from './profile/[username]/ProfileButton';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,37 +25,46 @@ export default async function RootLayout({ children }) {
     sessionToken && (await getUserBySessionToken(sessionToken.value));
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <div className={styles.wrapper}>
-          <nav className={styles.navbar}>
-            <h1>World travelers</h1>
-            <ul className={styles.links}>
-              <li>
-                <Link href="/">Home</Link>
-              </li>
+      <body>
+        <div className="navHeader">
+          <header>
+            <nav className="navContainer">
+              <ul>
+                <Link href="/">
+                  <Image
+                    src="/images/logo.png"
+                    alt="Logo"
+                    width={200}
+                    height={200}
+                  />{' '}
+                </Link>
 
-              <li>
-                <Link href="/posts">Community</Link>
-              </li>
-              <li>
-                <Link href="/createPost">Create Post</Link>
-              </li>
+                <li>
+                  {user ? (
+                    <>
+                      <Link href="/createPosts">Create post</Link>
+                      <Link href="/posts">Travel blog</Link>
+                      <Link href={`/profile/${user.username}`}>
+                        {user.username}
+                      </Link>
 
-              <li>
-                {user ? (
-                  <>
-                    <div>{user.username}</div>
-                    <LogoutButton />
-                  </>
-                ) : (
-                  <>
-                    <Link href="/register">Register</Link>
-                    <Link href="/login">Login</Link>
-                  </>
-                )}
-              </li>
-            </ul>
-          </nav>
+                      {ProfileButton}
+                      <LogoutButton />
+                    </>
+                  ) : (
+                    <>
+                      <button className="registerButton">
+                        <Link href="/register">Register</Link>
+                      </button>
+                      <button className="loginButton">
+                        <Link href="/login">Login</Link>
+                      </button>
+                    </>
+                  )}
+                </li>
+              </ul>
+            </nav>
+          </header>
         </div>
         {children}
       </body>

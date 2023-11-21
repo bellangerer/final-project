@@ -1,3 +1,5 @@
+import { ProfileButton } from './ProfileButton';
+
 type Props = {
   params: { username: string };
 };

@@ -1,0 +1,50 @@
+.info {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f7ff;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  box-shadow: 5px 11px 21px -5px #5b5b5b;
+}
+.titleWrapper {
+  margin: 2rem 0;
+}
+
+.imageWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 6rem;
+}
+.name {
+  text-decoration: none;
+  color: black;
+}
+
+.titleLink {
+  margin-top: 20px;
+  color: black;
+  padding: 30px;
+}
+
+.imageContainer {
+  object-fit: cover;
+  width: 100%;
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+}

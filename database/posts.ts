@@ -60,6 +60,7 @@ export const getBlogPostsById = cache(async (id: number) => {
       posts.id AS post_id,
       posts.title AS title,
       posts.content AS content,
+      posts.image_url AS image_url,
       users.username AS username
     FROM
       posts

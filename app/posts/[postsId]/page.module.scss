@@ -1,0 +1,46 @@
+.productName {
+  margin: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.button {
+  background: white;
+  width: 100px;
+  height: 50px;
+  border: none;
+  font-family: 'Dela Gothic One', cursive;
+  margin: 20px;
+  border-radius: 5px;
+}
+
+.postWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.postContainer {
+  border: solid 1px black;
+  border-radius: 20px;
+  padding: 20px;
+  background: white;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-weight: bolder;
+  margin-bottom: 20px;
+  font-size: 20px;
+}

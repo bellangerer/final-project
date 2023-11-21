@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { getSafeReturnToPath } from '../../../util/validation';
 import { LoginResponseBodyPost } from '../../api/(auth)/login/route';
+import styles from '../login/login.module.scss';
 
 type Props = { returnTo?: string | string[] };
 
@@ -47,25 +48,36 @@ export default function LoginForm(props: Props) {
   }
 
   return (
-    <form onSubmit={async (event) => await handleRegister(event)}>
-      <label>
-        Username
-        <input onChange={(event) => setUsername(event.currentTarget.value)} />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          onChange={(event) => setPassword(event.currentTarget.value)}
-        />
-      </label>
-      <button>Login</button>
+    <div className={styles.loginContainerWrapper}>
+      <div className={styles.loginContainer}>
+        <form
+          onSubmit={async (event) => await handleRegister(event)}
+          className={styles.loginWrapper}
+        >
+          <label className={styles.label}>
+            Username
+            <input
+              onChange={(event) => setUsername(event.currentTarget.value)}
+              className={styles.inputUserField}
+            />
+          </label>
+          <label className={styles.label}>
+            Password
+            <input
+              type="password"
+              onChange={(event) => setPassword(event.currentTarget.value)}
+              className={styles.inputPasswordField}
+            />
+          </label>
+          <button className={styles.loginButton}>Login</button>
 
-      {errors.map((error) => (
-        <div className="error" key={`error-${error.message}`}>
-          Error: {error.message}
-        </div>
-      ))}
-    </form>
+          {errors.map((error) => (
+            <div className="error" key={`error-${error.message}`}>
+              Error: {error.message}
+            </div>
+          ))}
+        </form>
+      </div>
+    </div>
   );
 }

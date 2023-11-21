@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { RegisterResponseBodyPost } from '../../api/(auth)/register/route';
+import styles from '../register/register.module.scss';
 
 export default function RegisterForm() {
   const [username, setUsername] = useState('');
@@ -36,25 +37,36 @@ export default function RegisterForm() {
   }
 
   return (
-    <form onSubmit={async (event) => await handleRegister(event)}>
-      <label>
-        Username
-        <input onChange={(event) => setUsername(event.currentTarget.value)} />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          onChange={(event) => setPassword(event.currentTarget.value)}
-        />
-      </label>
-      <button>Register</button>
+    <div className={styles.registerContainerWrapper}>
+      <div className={styles.registerContainer}>
+        <form
+          onSubmit={async (event) => await handleRegister(event)}
+          className={styles.registerFormWrapper}
+        >
+          <label className={styles.label}>
+            Username
+            <input
+              className={styles.inputUserField}
+              onChange={(event) => setUsername(event.currentTarget.value)}
+            />
+          </label>
+          <label className={styles.label}>
+            Password
+            <input
+              className={styles.inputPasswordField}
+              type="password"
+              onChange={(event) => setPassword(event.currentTarget.value)}
+            />
+          </label>
+          <button className="registerButton">Register</button>
 
-      {errors.map((error) => (
-        <div className="error" key={`error-${error.message}`}>
-          Error: {error.message}
-        </div>
-      ))}
-    </form>
+          {errors.map((error) => (
+            <div className="error" key={`error-${error.message}`}>
+              Error: {error.message}
+            </div>
+          ))}
+        </form>
+      </div>
+    </div>
   );
 }

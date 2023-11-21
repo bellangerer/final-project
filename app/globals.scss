@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
 *,
 *::before,
 *::after {
@@ -6,73 +8,106 @@
 }
 
 body {
-  border-style: solid;
-  border-color: orange;
   background-color: #def0f9;
+  font-family: 'Quicksand', sans-serif;
   margin: 0;
   padding: 0;
-
-  nav {
-    border-style: solid;
-    border-color: red;
-    height: 10.6rem;
-    background: #def0f9;
-    display: flex;
-    align-content: flex-end;
-    align-items: flex-end;
-    flex-wrap: wrap;
-  }
-  h1 {
-    border-style: solid;
-    border-color: black;
-    width: 500px;
-    margin: 20px;
-  }
-  ul {
-    border-style: solid;
-    border-color: green;
-    display: flex;
-    justify-content: right;
-    width: 100%;
-    align-items: center;
-    list-style-type: none;
-  }
-  > div a {
-    border-style: solid;
-    border-color: darkblue;
-    margin: 30px;
-    align-items: center;
-    text-decoration: none;
-  }
-
-  > main image {
-    border-style: solid;
-    border-color: darkmagenta;
-    box-sizing: content-box;
-  }
-  border-style: solid;
-  border-color: orange;
-  box-sizing: border-box;
-  width: auto;
 }
 
-html {
-  border-style: solid;
-  border-color: yellowgreen;
-  font-size: 16px;
+.navHeader .loginButton:hover,
+.registerButton:hover {
+  background-color: #ddd;
+  color: black;
 }
 
-.container {
-  border-style: solid;
-  border-color: maroon;
-  max-width: 1700px;
-  margin: 0 auto;
-  padding: 20px;
+nav {
+  // border-style: solid;
+  // border-color: red;
+  // height: 5rem;
+  // background: #def0f9;
+  // display: flex;
+
+  // overflow: hidden;
 }
 
-.map {
-  border-style: solid;
-  border-color: brown;
+ul {
+  display: flex;
+  align-content: flex-start;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+li {
+  // display: inline;
+  // float: right;
+  display: flex;
+  gap: 10px;
+}
+
+> main image {
+  box-sizing: content-box;
   display: flex;
   margin: 20px;
+  opacity: 10;
+}
+.registerButton {
+  background-color: whitesmoke;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.loginButton {
+  background-color: whitesmoke;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+a {
+  text-decoration: none;
+}
+
+.aboutText {
+  padding: 50px 150px;
+}
+.imageWrapper {
+  width: 100%;
+  margin-top: 50px;
+}
+.image {
+  width: 100%;
+  object-fit: cover;
+}
+
+h2 {
+  text-align: center;
+}
+
+.blogButton {
+  background-color: rgb(198, 198, 198);
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
 }
