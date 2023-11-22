@@ -43,14 +43,14 @@ export default function RegisterForm() {
           onSubmit={async (event) => await handleRegister(event)}
           className={styles.registerFormWrapper}
         >
-          <label className={styles.label}>
+          <label className={styles.usernameLabel}>
             Username
             <input
               className={styles.inputUserField}
               onChange={(event) => setUsername(event.currentTarget.value)}
             />
           </label>
-          <label className={styles.label}>
+          <label className={styles.passwordLabel}>
             Password
             <input
               className={styles.inputPasswordField}
@@ -58,7 +58,7 @@ export default function RegisterForm() {
               onChange={(event) => setPassword(event.currentTarget.value)}
             />
           </label>
-          <button className="registerButton">Register</button>
+          <button className={styles.registerButton}>Register</button>
 
           {errors.map((error) => (
             <div className="error" key={`error-${error.message}`}>

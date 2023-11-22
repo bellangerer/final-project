@@ -52,16 +52,16 @@ export default function LoginForm(props: Props) {
       <div className={styles.loginContainer}>
         <form
           onSubmit={async (event) => await handleRegister(event)}
-          className={styles.loginWrapper}
+          className={styles.loginFormWrapper}
         >
-          <label className={styles.label}>
+          <label className={styles.usernameLabel}>
             Username
             <input
               onChange={(event) => setUsername(event.currentTarget.value)}
               className={styles.inputUserField}
             />
           </label>
-          <label className={styles.label}>
+          <label className={styles.passwordLabel}>
             Password
             <input
               type="password"

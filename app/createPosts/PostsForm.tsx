@@ -4,6 +4,7 @@ import { CldImage } from 'next-cloudinary';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { RegisterResponseBodyPost } from '../api/(auth)/register/route';
+import styles from '../createPosts/create.module.scss';
 
 export default function PostsForm() {
   const [title, setTitle] = useState('');
@@ -39,34 +40,45 @@ export default function PostsForm() {
   }
 
   return (
-    <form onSubmit={async (event) => await handleRegister(event)}>
-      <label>
-        Title
-        <input onChange={(event) => setTitle(event.currentTarget.value)} />
-      </label>
-      <label>
-        Content
-        <input onChange={(event) => setContent(event.currentTarget.value)} />
-      </label>
-      <label>
-        Image URL
-        <input onChange={(event) => setImageUrl(event.currentTarget.value)} />
-      </label>
-      <CldImage
-        width="960"
-        height="600"
-        src="<Public ID>"
-        sizes="100vw"
-        alt="Description of my image"
-      />
+    <div className={styles.titleContainerWrapper}>
+      <div className={styles.titleContainer}>
+        <form
+          onSubmit={async (event) => await handleRegister(event)}
+          className={styles.titleWrapper}
+        >
+          <label className={styles.titleLabel}>
+            Title
+            <input
+              onChange={(event) => setTitle(event.currentTarget.value)}
+              className={styles.inputTitleField}
+            />
+          </label>
+          <label className={styles.label}>
+            Content
+            <input
+              onChange={(event) => setContent(event.currentTarget.value)}
+              className={styles.inputContentField}
+            />
+          </label>
+          <label className={styles.imageLabel}>
+            Image URL
+            <input
+              onChange={(event) => setImageUrl(event.currentTarget.value)}
+              className={styles.imageInputField}
+            />
+          </label>
 
-      <button type="submit">Add post</button>
+          <button className={styles.addPostButton} type="submit">
+            Add post
+          </button>
 
-      {errors.map((error) => (
-        <div className="error" key={`error-${error.message}`}>
-          Error: {error.message}
-        </div>
-      ))}
-    </form>
+          {errors.map((error) => (
+            <div className="error" key={`error-${error.message}`}>
+              Error: {error.message}
+            </div>
+          ))}
+        </form>
+      </div>
+    </div>
   );
 }
