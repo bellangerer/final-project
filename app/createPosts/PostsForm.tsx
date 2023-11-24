@@ -41,6 +41,7 @@ export default function PostsForm() {
 
   return (
     <div className={styles.titleContainerWrapper}>
+      <h2 className={styles.postsTitle}>Create your post</h2>
       <div className={styles.titleContainer}>
         <form
           onSubmit={async (event) => await handleRegister(event)}

@@ -42,11 +42,11 @@ export default async function RootLayout({ children }) {
                 <li>
                   {user ? (
                     <>
+                      <Link href={`/profile/${user.username}`}>
+                        Hey {user.username}!
+                      </Link>
                       <Link href="/createPosts">Create post</Link>
                       <Link href="/posts">Travel blog</Link>
-                      <Link href={`/profile/${user.username}`}>
-                        {user.username}
-                      </Link>
 
                       {ProfileButton}
                       <LogoutButton />

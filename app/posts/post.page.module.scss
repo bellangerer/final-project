@@ -1,3 +1,7 @@
+.postsTitle {
+  text-align: center;
+}
+
 .info {
   text-align: center;
   display: flex;
@@ -6,17 +10,22 @@
   align-items: center;
   align-content: center;
   flex-wrap: wrap;
+  padding: 50px;
 }
 
 .card {
-  margin: 0.5rem;
+  background: white;
+  text-decoration: none;
+  color: #444;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  background-color: #f8f7ff;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  box-shadow: 5px 11px 21px -5px #5b5b5b;
+  min-height: 100%;
+
+  // sets up hover state
+  position: relative;
+  top: 0;
+  transition: all 0.1s ease-in;
 }
 .titleWrapper {
   margin: 2rem 0;
@@ -34,9 +43,14 @@
 }
 
 .titleLink {
-  margin-top: 20px;
+  font-size: 15px;
+  margin: 0;
   color: black;
-  padding: 30px;
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .imageContainer {
@@ -47,4 +61,11 @@
 .image {
   object-fit: cover;
   width: 100%;
+}
+.postedBy {
+  font-size: 12px;
+  font-weight: bold;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }

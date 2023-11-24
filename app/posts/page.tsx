@@ -36,7 +36,7 @@ export default async function PostsPage() {
                 />
               </div>
               <div className={styles.titleLink}>{post.title}</div>
-              <p>Posted by: {post.username}</p>
+              <p className={styles.postedBy}>Posted by: {post.username}</p>
             </Link>
           ))
         ) : (
