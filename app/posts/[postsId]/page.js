@@ -38,6 +38,11 @@ export default async function PostsPage(props) {
         <div className={style.title}>{singleBlogPost.title}</div>
         <div>{singleBlogPost.content}</div>
       </div>
+      <div>
+        <h2>Add your comment here</h2>
+      </div>
+      <div id="comment-container"></div>
+      <textarea name="" id="new-comment" cols="60" rows="5"></textarea>
     </div>
   );
 }
