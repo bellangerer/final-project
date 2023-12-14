@@ -24,7 +24,7 @@ export default async function PostsPage(props) {
     <div className={style.postWrapper}>
       <div className={style.postContainer}>
         <div>
-          <h1>{singleBlogPost.BlogPostsById}</h1>
+          <h1>{singleBlogPost.blogPostsById}</h1>
         </div>
         <div>
           <Image
@@ -41,8 +41,21 @@ export default async function PostsPage(props) {
       <div>
         <h2>Add your comment here</h2>
       </div>
-      <div id="comment-container"></div>
-      <textarea name="" id="new-comment" cols="60" rows="5"></textarea>
+      <div id="comment-container">
+        {comments.map((comment, index) => (
+          <p key={index}>{comment}</p>
+        ))}
+      </div>
+      <textarea
+        value={newComment}
+        onChange={(e) => setNewComment(e.target.value)}
+        id="new-comment"
+        cols="60"
+        rows="5"
+      ></textarea>
+      <button onClick={handlePostClick} id="btn-post">
+        Post
+      </button>
     </div>
   );
 }
